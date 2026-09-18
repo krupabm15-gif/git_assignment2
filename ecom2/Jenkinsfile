@@ -6,9 +6,11 @@ pipeline {
         echo 'this is test'
       }
     }
-    stage ('test') {
-      steps {
-        echo 'this is test'
+    stage ('parallel') {
+      parallel {
+        stage ('unit test') {
+          steps {
+           echo 'this is test'
       }
     }
     stage ('deploy'){
@@ -17,4 +19,6 @@ pipeline {
     }
   }
 }
+}
+  }
 }
